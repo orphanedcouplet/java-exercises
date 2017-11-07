@@ -6,14 +6,22 @@ import java.util.Map;
 public class CountChars {
     public static void main(String[] args) {
         String text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc accumsan sem ut ligula scelerisque sollicitudin. Ut at sagittis augue. Praesent quis rhoncus justo. Aliquam erat volutpat. Donec sit amet suscipit metus, non lobortis massa. Vestibulum augue ex, dapibus ac suscipit vel, volutpat eget massa. Donec nec velit non ligula efficitur luctus.";
+        text = text.toLowerCase();
         char[] charsInText = text.toCharArray();
+        String alphabet = "abcdefghijklmnopqrstuvwxyz";
         HashMap<Character, Integer> freqTable = new HashMap<>();
 
         for (char c : charsInText) {
-            if (freqTable.containsKey(c)) {
-                freqTable.put(c, freqTable.get(c) + 1);
+            CharSequence letter = Character.toString(c);
+            if (!alphabet.contains(letter)) {
+                continue;
             } else {
-                freqTable.put(c, 1);
+                if (freqTable.containsKey(c)) {
+                    freqTable.put(c, freqTable.get(c) + 1);
+                } else {
+                    freqTable.put(c, 1);
+                }
+
             }
 
         }
