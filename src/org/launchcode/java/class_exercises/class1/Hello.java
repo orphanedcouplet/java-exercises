@@ -1,4 +1,4 @@
-package class_exercises.class1;
+package org.launchcode.java.class_exercises.class1;
 
 import java.util.Scanner;
 

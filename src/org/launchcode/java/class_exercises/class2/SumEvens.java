@@ -1,7 +1,4 @@
-package class_exercises.class2;
-
-import java.util.ArrayList;
-import java.util.Scanner;
+package org.launchcode.java.class_exercises.class2;
 
 public class SumEvens {
     public static void main(String[] args) {

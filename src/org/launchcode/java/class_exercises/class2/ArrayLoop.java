@@ -1,4 +1,4 @@
-package class_exercises.class2;
+package org.launchcode.java.class_exercises.class2;
 
 public class ArrayLoop {
     public static void main(String[] args) {

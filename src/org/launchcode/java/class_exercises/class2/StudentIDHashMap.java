@@ -1,4 +1,4 @@
-package class_exercises.class2;
+package org.launchcode.java.class_exercises.class2;
 
 import java.util.HashMap;
 import java.util.Map;

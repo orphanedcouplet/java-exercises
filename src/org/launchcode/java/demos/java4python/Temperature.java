@@ -6,19 +6,20 @@ package org.launchcode.java.demos.java4python;
 public class Temperature {
 
     private double fahrenheit;
+    public static final double ABSOLUTE_ZERO_FAHRENHEIT = -459.67;
 
     public double getFahrenheit() {
         return fahrenheit;
     }
 
-    public void setFahrenheit(double fahrenheit) {
+    public void setFahrenheit(double aFahrenheit) {
 
         // Validate that temp isn't lower than the coldest possible temp ("absolute zero")
-        if (fahrenheit < -459.67) {
+        if (aFahrenheit < ABSOLUTE_ZERO_FAHRENHEIT) {
             throw new IllegalArgumentException("Value is below absolute zero");
         }
 
-        this.fahrenheit = fahrenheit;
+        this.fahrenheit = aFahrenheit;
     }
 
     public double getCelsius() {
