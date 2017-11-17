@@ -1,5 +1,12 @@
 package org.launchcode.java.class_exercises.class5.school;
 
+import com.sun.org.apache.xerces.internal.impl.dv.xs.YearMonthDV;
+
+import java.time.Clock;
+import java.time.LocalDate;
+import java.time.temporal.TemporalAmount;
+import java.util.Date;
+
 public class Student {
 
     private static int nextStudentId = 1;
@@ -7,25 +14,23 @@ public class Student {
     private final int studentId;
     private int numberOfCredits = 0;
     private double gpa = 0.0;
-    private Integer age;
+    private LocalDate birthdate;
     private boolean oldEnoughToVote;
 
-    private Student(String name, int studentId, int numberOfCredits, double gpa, Integer age) {
+    private Student(String name, int studentId, int numberOfCredits, double gpa, LocalDate birthdate) {
         this.name = name;
         this.studentId = studentId;
         this.numberOfCredits = numberOfCredits;
         this.gpa = gpa;
-        this.age = age;
-        // ???:
-        this.oldEnoughToVote = isOldEnoughToVote();
+        this.birthdate = birthdate;
     }
 
-    private Student(String name, int studentId, Integer age) {
-        this(name, studentId, 0, 0.0, age);
+    private Student(String name, int studentId, LocalDate birthdate) {
+        this(name, studentId, 0, 0.0, birthdate);
     }
 
-    public Student(String name, Integer age) {
-        this(name, nextStudentId, age);
+    public Student(String name, LocalDate birthdate) {
+        this(name, nextStudentId, birthdate);
         nextStudentId++;
     }
 
@@ -33,7 +38,7 @@ public class Student {
         return name;
     }
 
-    public void setName(String aName) {
+    private void setName(String aName) {
         name = aName;
     }
 
@@ -45,7 +50,7 @@ public class Student {
         return numberOfCredits;
     }
 
-    public void  setNumberOfCredits(int aNumber) {
+    protected void  setNumberOfCredits(int aNumber) {
         numberOfCredits = aNumber;
     }
 
@@ -53,23 +58,24 @@ public class Student {
         return gpa;
     }
 
-    private void setGpa(double aGpa) {
+    protected void setGpa(double aGpa) {
         gpa = aGpa;
     }
 
-    public Integer getAge() {
-        return age;
+    public LocalDate getBirthdate() {
+        return birthdate;
     }
 
-    public void setAge(Integer anAge) {
-        age = anAge;
+    protected void setBirthdate(LocalDate aBirthdate) {
+        birthdate = aBirthdate;
     }
 
-    // i have questions about the "else if (age.equals(null))"
+    // i have questions about the "else if (birthdate.equals(null))"
     public boolean isOldEnoughToVote() {
-        if (this.age >= 18) {
+        LocalDate now = LocalDate.now();
+        if (now.minusYears(18).equals(this.birthdate)) {
             return true;
-        } else if (this.age.equals(null)) {
+        } else if (this.birthdate.equals(null)) {
             throw new IllegalArgumentException("Age not set");
         } else {
             return false;
