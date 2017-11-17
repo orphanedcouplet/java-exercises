@@ -20,4 +20,8 @@ public class ParkingLot {
         return true;
     }
 
+    public boolean spaceFull(int spaceN) {
+        return lot[spaceN] != null;
+    }
+
 }
