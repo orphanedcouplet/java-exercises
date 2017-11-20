@@ -1,7 +1,6 @@
-package org.launchcode.java.class_exercises.class5.school;
+package org.launchcode.java.class_exercises.class5and6.school;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 
 public class Course {
     private String courseTitle;
@@ -26,6 +25,26 @@ public class Course {
     public Course(String courseTitle) {
         this(courseTitle, nextCourseId);
         nextCourseId++;
+    }
+
+    @Override
+    public String toString() {
+        return this.courseTitle + " (" + this.creditHours + " credits, instructor: " + this.instructor + ")";
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Course course = (Course) o;
+
+        return courseId == course.courseId;
+    }
+
+    @Override
+    public int hashCode() {
+        return courseId;
     }
 
     public String getCourseTitle() {

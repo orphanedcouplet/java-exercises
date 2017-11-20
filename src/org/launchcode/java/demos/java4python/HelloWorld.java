@@ -15,4 +15,8 @@ public class HelloWorld {
     public void setMessage(String aMessage) {
         message = aMessage;
     }
+
+    void sayHello() {
+        System.out.println(message);
+    }
 }
