@@ -8,22 +8,22 @@ public class MenuItem {
     private String description;
     private String category;
     private double price;
-    private final Date dateCreated;
+    private final XDate dateCreated;
     private boolean newness;
 
     public MenuItem(String name, String description, String category) {
         this.name = name;
         this.description = description;
         this.category = category;
-        this.dateCreated = new Date();
-        this.newness = true;
+        this.dateCreated = XDate.xNow();
+        this.newness = isNewness();
     }
 
     public String getName() {
         return name;
     }
 
-    protected void setName(String aName) {
+    private void setName(String aName) {
         this.name = aName;
     }
 
@@ -31,7 +31,7 @@ public class MenuItem {
         return description;
     }
 
-    protected void setDescription(String aDescription) {
+    private void setDescription(String aDescription) {
         this.description = aDescription;
     }
 
@@ -39,7 +39,7 @@ public class MenuItem {
         return category;
     }
 
-    protected void setCategory(String aCategory) {
+    private void setCategory(String aCategory) {
         this.category = aCategory;
     }
 
@@ -47,11 +47,11 @@ public class MenuItem {
         return price;
     }
 
-    protected void setPrice(double aPrice) {
+    private void setPrice(double aPrice) {
         this.price = aPrice;
     }
 
-    public Date getDateCreated() {
+    public XDate getDateCreated() {
         return dateCreated;
     }
 
@@ -60,8 +60,8 @@ public class MenuItem {
     }
 
     private void setNewness() {
-        Date now = new Date();
-        if (now.compareTo(this.dateCreated) >= 14) {
+        XDate now = XDate.xNow();
+        if (XDate.compare2XDates(this.dateCreated, now) >= 14) {
             newness = false;
         };
     }

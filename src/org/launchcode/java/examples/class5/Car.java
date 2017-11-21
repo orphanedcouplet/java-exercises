@@ -1,4 +1,4 @@
-package org.launchcode.java.examples;
+package org.launchcode.java.examples.class5;
 
 public class Car {
 
