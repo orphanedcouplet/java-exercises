@@ -34,7 +34,7 @@ public class XDate {
         // throws NullPointerException if anotherDate is null
 
         if (aDate == null || anotherDate == null) {
-            throw new NullPointerException("null object(s) :(");
+            throw new NullPointerException("null XDate(s) :(");
         } else {
             // make Calendar objects with the same date as our XDate objects
             Calendar aCal = Calendar.getInstance();

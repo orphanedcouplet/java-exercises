@@ -1,7 +1,5 @@
 package org.launchcode.java.studios.restaurant;
 
-import java.util.Date;
-
 public class MenuItem {
 
     private String name;
@@ -16,7 +14,7 @@ public class MenuItem {
         this.description = description;
         this.category = category;
         this.dateCreated = XDate.xNow();
-        this.newness = isNewness();
+        this.setNewness();
     }
 
     public String getName() {
@@ -63,6 +61,8 @@ public class MenuItem {
         XDate now = XDate.xNow();
         if (XDate.compare2XDates(this.dateCreated, now) >= 14) {
             newness = false;
-        };
+        } else {
+            newness = true;
+        }
     }
 }
