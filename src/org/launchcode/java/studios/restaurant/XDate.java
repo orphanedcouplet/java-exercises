@@ -25,6 +25,7 @@ public class XDate {
     }
 
     public static int compare2XDates(XDate aDate, XDate anotherDate) {
+
         // returns:
         // the value 0 if aDate is equal to anotherDate
         // a value less than 0 if anotherDate is before aDate
