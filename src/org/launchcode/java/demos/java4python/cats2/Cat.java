@@ -1,6 +1,6 @@
 package org.launchcode.java.demos.java4python.cats2;
 
-public abstract class Cat {
+public abstract class Cat implements Feedable {
 
     private boolean tired = false;
     private boolean hungry = false;
@@ -52,6 +52,7 @@ public abstract class Cat {
     }
 
     // Eating makes a cat not hungry
+    @Override
     public void eat() {
 
         // eating when not hungry makes a cat sleepy
